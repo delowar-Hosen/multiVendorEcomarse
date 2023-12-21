@@ -1,0 +1,6 @@
+.rdw-editor-wrapper {
+  box-sizing: content-box;
+  border: 1px solid #0000001e;
+  border-radius: 10px;
+  padding: 5px;
+}
