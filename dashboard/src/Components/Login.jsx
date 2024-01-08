@@ -19,9 +19,13 @@ import {
 } from "antd";
 
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { validateUser } from "../features/userCheck/userValidate";
 
 const Login = () => {
+  let dispatch = useDispatch();
+
   const [SubmitData, setSubmitData] = useState({
     email: "",
     password: "",
@@ -54,6 +58,8 @@ const Login = () => {
       } else {
         if (data.success) {
           setSuccess(data.success);
+          dispatch(validateUser(data));
+          localStorage.setItem("userInfo", JSON.stringify(data));
           setTimeout(() => {
             navigate("/");
           }, 3000);

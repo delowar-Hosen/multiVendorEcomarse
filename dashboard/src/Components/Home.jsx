@@ -1,15 +1,12 @@
-import React from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  OrderedListOutlined,
-} from "@ant-design/icons";
+import React, { useEffect } from "react";
+import { FolderAddOutlined, OrderedListOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 
 import { Menu } from "antd";
 import { BiCategoryAlt, BiCategory } from "react-icons/bi";
 import { MdOutlineDiscount } from "react-icons/md";
 import { Outlet, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -54,9 +51,22 @@ const items = [
     getItem("Add Discount", "9"),
     getItem("All Discount", "10"),
   ]),
+  getItem("Approved", "sub6", <FolderAddOutlined />, [
+    getItem("Merchant", "11"),
+    getItem("Category", "12"),
+    getItem("Sub-Category", "13"),
+  ]),
 ];
 
 const Home = () => {
+  const user = useSelector((state) => state.user.value);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, []);
+
   const navigate = useNavigate();
   const onClick = (e) => {
     console.log("click ", e);

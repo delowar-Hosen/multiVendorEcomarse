@@ -19,7 +19,10 @@ const loginController = async (req, res) => {
         bcrypt.compare(password, isEmail[0].password).then(function (result) {
           if (result) {
             res.json({
+              email: isEmail[0].email,
               role: isEmail[0].role,
+              verified: isEmail[0].verified,
+              fullname: isEmail[0].fullName,
               success: "Login is successfully",
             });
           } else {
