@@ -40,14 +40,14 @@ const Home = () => {
     },
     getItem("Category", "sub2", <BiCategoryAlt />, [
       getItem("Add Category", "/addcategory"),
-      getItem("All Category ", "4"),
+      getItem("All Category ", "/allcategory"),
     ]),
     {
       type: "divider",
     },
     getItem("Sub-Category", "sub3", <BiCategory />, [
-      getItem("Add Sub-Category", "5"),
-      getItem("All Sub-Category", "6"),
+      getItem("Add Sub-Category", "/addsubcategory"),
+      getItem("All Sub-Category", "/allsubcategory"),
     ]),
     {
       type: "divider",

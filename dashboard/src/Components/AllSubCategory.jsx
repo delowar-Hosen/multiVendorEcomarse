@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "antd";
 import axios from "axios";
 
-const CategoryList = () => {
+const SubCategoryList = () => {
   const columns = [
     {
       title: "Serial",
@@ -64,7 +64,7 @@ const CategoryList = () => {
     },
   ];
 
-  const [Category, setCategory] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
 
   let handleDelate = async (id) => {
     await axios.post("http://localhost:8000/api/v1/product/delateproduct", {
@@ -75,11 +75,10 @@ const CategoryList = () => {
   useEffect(() => {
     async function getData() {
       let { data } = await axios.get(
-        "http://localhost:8000/api/v1/category/getallcategory"
+        "http://localhost:8000/api/v1/category/getallsubcategory"
       );
 
       let arr = [];
-      console.log(data);
       data.map((Item, index) => {
         arr.push({
           key: Item._id,
@@ -90,14 +89,13 @@ const CategoryList = () => {
           status: Item.status,
         });
       });
-      console.log(arr);
-      setCategory(arr);
+      setSubCategory(arr);
     }
 
     getData();
   }, []);
 
-  return <Table columns={columns} dataSource={Category} />;
+  return <Table columns={columns} dataSource={subCategory} />;
 };
 
-export default CategoryList;
+export default SubCategoryList;

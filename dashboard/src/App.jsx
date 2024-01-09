@@ -17,6 +17,9 @@ import ResetPasswordEmail from "./ResetPasswordEmail";
 import LogOutUser from "./Protected Route/User Login Check/logOutUser";
 import LogInUser from "./Protected Route/User Login Check/logInUser";
 import AddCategory from "./Components/AddCategory";
+import CategoryList from "./Components/AllCategory";
+import AddSubCategory from "./Components/addSubCategry";
+import SubCategoryList from "./Components/ALlSubCategory";
 
 function App() {
   const router = createBrowserRouter(
@@ -36,6 +39,9 @@ function App() {
           <Route path="/" element={<Home />}>
             <Route path="/addproduct" element={<AddProduct />}></Route>
             <Route path="/addcategory" element={<AddCategory />}></Route>
+            <Route path="/addsubcategory" element={<AddSubCategory />}></Route>
+            <Route path="/allcategory" element={<CategoryList/>}></Route>
+            <Route path="/allsubcategory" element={<SubCategoryList/>}></Route>
             <Route path="*" element={<Error />}></Route>
             <Route path="/productlist" element={<ProductList />}></Route>
             <Route path="/varientlist" element={<VarientList />}></Route>
