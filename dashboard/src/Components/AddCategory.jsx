@@ -54,11 +54,10 @@ const AddCategory = () => {
 
   let handleProduct = async () => {
     let data = await axios.post(
-      "http://localhost:8000/api/v1/product/createproduct",
+      "http://localhost:8000/api/v1/category/createcategory",
       {
         name: name,
         description: draftToHtml(convertToRaw(editorState.getCurrentContent())),
-        store: storeName,
       }
     );
 

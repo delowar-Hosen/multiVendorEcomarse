@@ -11,7 +11,7 @@ const {
 } = require("../../controllers/subCategoryController");
 const _ = express.Router();
 
-_.post("/category", categoryController);
+_.post("/createcategory", categoryController);
 _.post("/categorystatus", updateCategory);
 _.post("/subcategory", subCategoryController);
 _.post("/subcategorystatus", updateSubCategory);
