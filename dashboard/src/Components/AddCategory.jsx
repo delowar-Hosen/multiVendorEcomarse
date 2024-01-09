@@ -22,7 +22,7 @@ const options = [
   },
 ];
 
-const Product = () => {
+const AddCategory = () => {
   const [store, setStore] = useState([]);
   const [name, setName] = useState("");
   const [storeName, setStoreName] = useState("");
@@ -30,6 +30,7 @@ const Product = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const onEditorStateChange = (newEditorState) => {
     setEditorState(newEditorState);
+    console.log(newEditorState);
   };
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const Product = () => {
   }, []);
 
   let handleProduct = async () => {
-    let data =await axios.post(
+    let data = await axios.post(
       "http://localhost:8000/api/v1/product/createproduct",
       {
         name: name,
@@ -67,14 +68,14 @@ const Product = () => {
   return (
     <div style={{ marginTop: "20px" }}>
       <div style={{ marginTop: "10px", marginBottom: "10x" }}>
-        <h5 className=" mb-2">Product Name :</h5>
+        <h5 className=" mb-2">Category Name :</h5>
         <Input
           onChange={(e) => setName(e.target.value)}
-          placeholder="Product Name Here"
+          placeholder="Category Name Here"
         />
       </div>
       <div style={{ marginTop: "10px", marginBottom: "10x" }}>
-        <h5 className=" mb-2">Product Description :</h5>
+        <h5 className=" mb-2">Category Description :</h5>
         <Editor
           editorState={editorState}
           wrapperClassName="demo-wrapper"
@@ -82,37 +83,17 @@ const Product = () => {
           onEditorStateChange={onEditorStateChange}
         />
       </div>
-      <div style={{ marginTop: "10px", marginBottom: "10x" }}>
-        <h5 className=" mb-2">Product Varient :</h5>
-        <Select
-          mode="multiple"
-          style={{
-            width: "100%",
-          }}
-          options={options}
-        />
-      </div>
-      <div style={{ marginTop: "10px", marginBottom: "10x" }}>
-        <h5 className=" mb-2">Product Store Name :</h5>
-        <Select
-          onChange={(e) => setStoreName(e)}
-          mode="single"
-          style={{
-            width: "100%",
-          }}
-          options={store}
-        />
-      </div>
+
       <Button
         onClick={handleProduct}
         style={{ marginTop: "40px" }}
         type="primary"
         block
       >
-        Product Upload
+        Category Upload
       </Button>
     </div>
   );
 };
 
-export default Product;
+export default AddCategory;
