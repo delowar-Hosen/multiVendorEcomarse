@@ -29,13 +29,13 @@ exports.categoryController = async (req, res) => {
 exports.updateCategory = async (req, res) => {
   try {
     const { name, status } = req.body;
-    if (status == "rejected" || status == "waiting") {
+    if (status == "Rejected" || status == "Waiting") {
       await categoryModel.findOneAndUpdate(
         { name },
         { $set: { isActive: false, status: status } },
         { new: true }
       );
-    } else if (status == "approved") {
+    } else if (status == "Approved") {
       await categoryModel.findOneAndUpdate(
         { name },
         { $set: { isActive: true, status: status } },

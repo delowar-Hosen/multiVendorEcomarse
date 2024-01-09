@@ -83,12 +83,7 @@ const AddCategory = () => {
         />
       </div>
 
-      <Button
-        onClick={handleProduct}
-        style={{ marginTop: "40px" }}
-        type="primary"
-        block
-      >
+      <Button className="bg-[#46AAF1] text-[#000]  mt-10" onClick={handleProduct} block>
         Category Upload
       </Button>
     </div>

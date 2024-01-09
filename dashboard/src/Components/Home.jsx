@@ -39,14 +39,17 @@ const Home = () => {
       type: "divider",
     },
     getItem("Category", "sub2", <BiCategoryAlt />, [
-      getItem("Add Category", "/addcategory"),
+      user && user.role == "admin" && getItem("Add Category", "/addcategory"),
       getItem("All Category ", "/allcategory"),
     ]),
     {
       type: "divider",
     },
     getItem("Sub-Category", "sub3", <BiCategory />, [
-      getItem("Add Sub-Category", "/addsubcategory"),
+      user &&
+        user.role == "admin" &&
+        getItem("Add Sub-Category", "/addsubcategory"),
+
       getItem("All Sub-Category", "/allsubcategory"),
     ]),
     {
@@ -63,19 +66,16 @@ const Home = () => {
       getItem("Add Discount", "9"),
       getItem("All Discount", "10"),
     ]),
-    `${
-      user &&
+    user &&
       user.role == "admin" &&
       getItem("Approved", "sub6", <FolderAddOutlined />, [
         getItem("Merchant", "11"),
-        getItem("Category", "12"),
-        getItem("Sub-Category", "13"),
-      ])
-    },`,
+        getItem("Category", "/categorystatus"),
+        getItem("Sub-Category", "/subcategorystatus"),
+      ]),
   ];
 
   const onClick = (e) => {
-    console.log("click ", e);
     navigate(e.key);
   };
 

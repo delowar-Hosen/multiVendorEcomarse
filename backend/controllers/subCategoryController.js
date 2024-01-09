@@ -37,13 +37,13 @@ exports.subCategoryController = async (req, res) => {
 exports.updateSubCategory = async (req, res) => {
   try {
     const { name, status } = req.body;
-    if (status == "rejected" || status == "waiting") {
+    if (status == "Rejected" || status == "Waiting") {
       await subCategoryModel.findOneAndUpdate(
         { name },
         { $set: { isActive: false, status: status } },
         { new: true }
       );
-    } else if (status == "approved") {
+    } else if (status == "Approved") {
       await subCategoryModel.findOneAndUpdate(
         { name },
         { $set: { isActive: true, status: status } },
@@ -56,8 +56,7 @@ exports.updateSubCategory = async (req, res) => {
   }
 };
 
-
 exports.getAllSubCategory = async (req, res) => {
-  let data = await subCategoryModel.find({}).populate("category")
+  let data = await subCategoryModel.find({}).populate("category");
   res.send(data);
 };

@@ -52,7 +52,7 @@ const Product = () => {
   }, []);
 
   let handleProduct = async () => {
-    let data =await axios.post(
+    await axios.post(
       "http://localhost:8000/api/v1/product/createproduct",
       {
         name: name,
@@ -60,8 +60,6 @@ const Product = () => {
         store: storeName,
       }
     );
-
-    console.log(data);
   };
 
   return (
@@ -103,12 +101,7 @@ const Product = () => {
           options={store}
         />
       </div>
-      <Button
-        onClick={handleProduct}
-        style={{ marginTop: "40px" }}
-        type="primary"
-        block
-      >
+      <Button className="bg-[#46AAF1] text-[#000]  mt-10" onClick={handleProduct} block>
         Product Upload
       </Button>
     </div>

@@ -20,6 +20,8 @@ import AddCategory from "./Components/AddCategory";
 import CategoryList from "./Components/AllCategory";
 import AddSubCategory from "./Components/addSubCategry";
 import SubCategoryList from "./Components/ALlSubCategory";
+import CategoryStatus from "./Components/categoryStatus";
+import SubCategoryStatus from "./Components/subCategoryStatus";
 
 function App() {
   const router = createBrowserRouter(
@@ -40,8 +42,13 @@ function App() {
             <Route path="/addproduct" element={<AddProduct />}></Route>
             <Route path="/addcategory" element={<AddCategory />}></Route>
             <Route path="/addsubcategory" element={<AddSubCategory />}></Route>
-            <Route path="/allcategory" element={<CategoryList/>}></Route>
-            <Route path="/allsubcategory" element={<SubCategoryList/>}></Route>
+            <Route path="/allcategory" element={<CategoryList />}></Route>
+            <Route path="/allsubcategory" element={<SubCategoryList />}></Route>
+            <Route path="/categorystatus" element={<CategoryStatus />}></Route>
+            <Route
+              path="/subcategorystatus"
+              element={<SubCategoryStatus />}
+            ></Route>
             <Route path="*" element={<Error />}></Route>
             <Route path="/productlist" element={<ProductList />}></Route>
             <Route path="/varientlist" element={<VarientList />}></Route>
